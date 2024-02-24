@@ -7,12 +7,7 @@ var horas = 0;
 var pausado = false;
 var enEjecución = false;
 
-// function iniciarCronometro() {
-//   if (!pausado) {
-//     cronometroInterval = setInterval(actualizarCronometro, 1000);
-//     pausado = false;
-//   }
-// }
+
 
 //Si está andando el cronometro no podes volver a apretar iniciar capo
 function iniciarCronometro (){
@@ -30,11 +25,7 @@ function pausarCronometro() {
   enEjecución = false;   
 }
 
-// function pausarCronometro(){
-//   clearInterval (cronometroInterval);
-//   enEjecución = false;
-//   pausado = true;
-// }
+
 
 function reiniciarCronometro() {  
   segundos = 0;
