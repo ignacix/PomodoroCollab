@@ -16,6 +16,7 @@ var enEjecución = false;
 
 //Si está andando el cronometro no podes volver a apretar iniciar capo
 function iniciarCronometro (){
+  
   if (!enEjecución){
     cronometroInterval = setInterval (actualizarCronometro, 1000);
       enEjecución = true;
@@ -26,6 +27,7 @@ function iniciarCronometro (){
 function pausarCronometro() {
   clearInterval(cronometroInterval);
   pausado = true;
+  enEjecución = false;   
 }
 
 // function pausarCronometro(){
@@ -34,13 +36,12 @@ function pausarCronometro() {
 //   pausado = true;
 // }
 
-function reiniciarCronometro() {
-  clearInterval(cronometroInterval);
+function reiniciarCronometro() {  
   segundos = 0;
   minutos = 0;
   horas = 0;
+  pausado = false;  
   actualizarDisplay();
-  pausado = false;
 }
 
 function actualizarCronometro() {
