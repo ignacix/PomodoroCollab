@@ -1,3 +1,5 @@
+
+
 // CRONOMETRO
 var cronometroInterval;
 var segundos = 0;
@@ -51,3 +53,29 @@ function actualizarDisplay() {
 function formatTime(time) {
   return time < 10 ? '0' + time : time;
 }
+
+
+// IMPLEMENTACIÓN DE CLASE ToDoList
+
+// Crear una instancia de ToDoList
+const myToDoList = new ToDoList();
+
+// Obtener elementos del DOM
+const addButton = document.getElementById('addButton');
+const inputTask = document.getElementById('taskInput');
+const taskList = document.getElementById('taskList');
+
+// Función para agregar una tarea al hacer clic en el botón
+function addTaskOnClick() {
+    // Obtener el valor del input
+    const newTask = inputTask.value;
+    // Agregar la tarea a la lista
+    myToDoList.addTask(newTask);
+    // Actualizar el contenido del párrafo con las tareas
+    taskList.textContent = myToDoList.getAllTasks().map(task => task.task).join(', ');
+    // Limpiar el input
+    inputTask.value = '';
+}
+
+// Asignar el evento onclick al botón
+addButton.onclick = addTaskOnClick;
