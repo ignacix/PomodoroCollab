@@ -12,28 +12,31 @@
 
 <body>
     <div class="container">
+        <!-- CRONOMETRO -->
         <div class="cronometroContainer">
             <div class="cronometroContent m-4 mt-6">
                 <div id="cronometro-display">00:00:00</div>
-                <button class="btn btn-secondary btn-sm" id="start-btn" onclick="iniciarPausarCronometro()">Iniciar</button>
-                <button class="btn btn-secondary btn-sm" id="reset-btn" onclick="reiniciarCronometro()">Reiniciar</button>
-            </div>
-            <div class="toDoList" >
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" id="taskInput" placeholder="Ingrese una nueva tarea">
-                    <button id="addButton">Agregar Tarea</button>
-                </div>                
-                <div>
-                    <p id="taskList"></p>
-                </div>
-            
-                <script src="ToDoList.js"></script>
-                <script src="index.js"></script>          
+                <button class="btn btn-secondary btn-sm" id="start-btn"
+                    onclick="iniciarPausarCronometro()">Iniciar</button>
+                <button class="btn btn-secondary btn-sm" id="reset-btn"
+                    onclick="reiniciarCronometro()">Reiniciar</button>
             </div>
         </div>
+
+        <!-- TO-DO LIST -->
+        <div class="toDoList">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="taskInput" placeholder="Ingrese una nueva tarea">
+                <button id="addButton">Agregar Tarea</button>
+            </div>
+            <div>
+                <p id="taskList"></p>
+            </div>
+        </div>
+
     </div>
-    <script src="./appOmodoro.js"></script>
     <script src="ToDoList.js"></script>
+    <script src="./appOmodoro.js"></script>
 </body>
 
 </html>
