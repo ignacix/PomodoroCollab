@@ -1,13 +1,9 @@
-
-
 // CRONOMETRO
 var cronometroInterval;
 var segundos = 0;
 var minutos = 0;
 var horas = 0;
 var enEjecucion = false;
-//eliminé la var tiempoInicial 
-//eliminé la var pausado
 
 //unificamos las funciones "iniciar y pausar" (anteriormente eran dos diferentes)
 function iniciarPausarCronometro() {
@@ -29,6 +25,7 @@ function reiniciarCronometro() {
   horas = 0;
   enEjecucion = false;
   document.getElementById('start-btn').textContent = 'Iniciar';
+  document.body.classList.remove('fondo-descanso'); //si el fondo es de descanso, cuando reinicias vuelve al original
   actualizarDisplay();
 }
 
@@ -37,9 +34,13 @@ function actualizarCronometro() {
   if (segundos === 60) {
     segundos = 0;
     minutos++;
-    if (minutos === 60) {
-      minutos = 0;
-      horas++;
+    if (minutos === 1) { // Tiempo de estudio (25')
+      document.body.classList.add('fondo-descanso'); // Clase para cambiar el fondo
+      alert('¡Descanso! Toma un descanso de 5 minutos.'); // Mensaje de descanso
+    } else if (minutos === 2) { // Tiempo de descanso (5')
+      document.body.classList.remove('fondo-descanso'); // Volver al fondo original
+      alert('¡Estudio! Es hora de volver a estudiar.'); // Mensaje de estudio
+      minutos = 0; // Reinicia los minutos para empezar otro ciclo de estudio
     }
   }
   actualizarDisplay();
