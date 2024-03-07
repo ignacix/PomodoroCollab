@@ -30,6 +30,11 @@ body{
   margin-bottom: 20px;
 }
 
+.playPause{
+  display: flex;
+justify-content: center;
+}
+
 .fondo-descanso {
   background-color: #ccffe0; /* Temporal*/
 }

@@ -4,17 +4,19 @@ var segundos = 0;
 var minutos = 0;
 var horas = 0;
 var enEjecucion = false;
+var contadorVueltas = 0;
+var contadorPomodoros = 0;
 
 //unificamos las funciones "iniciar y pausar" (anteriormente eran dos diferentes)
 function iniciarPausarCronometro() {
   if (!enEjecucion) {
     cronometroInterval = setInterval(actualizarCronometro, 1000); //se inicia el intervalo cronometroInterval que llama a la función actualizarCronometro
     enEjecucion = true;
-    document.getElementById('start-btn').textContent = 'Pausar'; //el start-btn por defecto es de "iniciar", das click y ahora el text content es "pausar".
+    document.getElementById('start-btn').textContent = '𝗅𝗅'; //el start-btn por defecto es de "iniciar", das click y ahora el text content es "pausar".
   } else {
     clearInterval(cronometroInterval);
     enEjecucion = false;
-    document.getElementById('start-btn').textContent = 'Iniciar';
+    document.getElementById('start-btn').textContent = '▷';
   }
 }
 
@@ -24,13 +26,12 @@ function reiniciarCronometro() {
   minutos = 0;
   horas = 0;
   enEjecucion = false;
-  document.getElementById('start-btn').textContent = 'Iniciar';
-<<<<<<< Updated upstream
+  document.getElementById('start-btn').textContent = '▷';
+  contadorPomodoros = 0; // Reinicia el contador de pomodoros
+  document.getElementById('contador-pomodoros').textContent = 'Vueltas: ' + contadorPomodoros;
   document.body.classList.remove('fondo-descanso'); //si el fondo es de descanso, cuando reinicias vuelve al original
   actualizarDisplay();
-=======
-  actualizarDisplay();  
->>>>>>> Stashed changes
+  // actualizarDisplay();  
 }
 
 function actualizarCronometro() {
@@ -45,6 +46,13 @@ function actualizarCronometro() {
       document.body.classList.remove('fondo-descanso'); // Volver al fondo original
       alert('¡Estudio! Es hora de volver a estudiar.'); // Mensaje de estudio
       minutos = 0; // Reinicia los minutos para empezar otro ciclo de estudio
+    
+      contadorVueltas++;
+      if (contadorVueltas % 2 === 0) { // Verifica si se han completado dos ciclos de descanso
+        contadorVueltas = 0; // Reinicia el contador de vueltas
+        contadorPomodoros++;
+        document.getElementById('contador-pomodoros').textContent = 'Vueltas: ' + contadorPomodoros;
+      }
     }
   }
   if(minutos==3){
@@ -88,7 +96,7 @@ function addTask() {
 
         // Crear botones para marcar como completada y eliminar la tarea
         const completeButton = document.createElement('button');
-        completeButton.textContent = 'Hecho';
+        completeButton.textContent = '✓';
         completeButton.classList.add('btn', 'btn-success', 'me-2');
         completeButton.addEventListener('click', function() {
             // Marcar la tarea como completada
@@ -98,7 +106,7 @@ function addTask() {
         });
 
         const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Borrar';
+        deleteButton.textContent = '✘';
         deleteButton.classList.add('btn', 'btn-danger');
         deleteButton.addEventListener('click', function() {
             // Eliminar la tarea de la lista

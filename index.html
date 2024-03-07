@@ -12,14 +12,15 @@
 
 <body>
     <div class="container">
+        <p id="contador-pomodoros">Vueltas: 0</p>
         <!-- CRONOMETRO -->
         <div class="cronometroContainer">
             <div class="cronometroContent m-4 mt-6">
                 <div id="cronometro-display">00:00:00</div>
-                <button class="btn btn-secondary btn-sm" id="start-btn"
-                    onclick="iniciarPausarCronometro()">Iniciar</button>
-                <button class="btn btn-secondary btn-sm" id="reset-btn"
-                    onclick="reiniciarCronometro()">Reiniciar</button>
+                <div class="playPause">
+                    <button class="btn btn-secondary m-2" id="start-btn" onclick="iniciarPausarCronometro()">▷</button>
+                    <button class="btn btn-secondary m-2" id="reset-btn" onclick="reiniciarCronometro()">⟲</button>
+                </div>
             </div>
         </div>
 
@@ -42,7 +43,7 @@
                         <input type="text" id="taskInput" class="form-control" placeholder="Ingrese una nueva tarea">
                     </div>
                     <div class="col">
-                        <button id="addButton" class="btn btn-primary me-2">Add</button>
+                        <button id="addButton" class="btn btn-primary me-2">+</button>
                     </div>
                 </div>
                 <div id="toDoList">
