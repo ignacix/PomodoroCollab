@@ -25,8 +25,12 @@ function reiniciarCronometro() {
   horas = 0;
   enEjecucion = false;
   document.getElementById('start-btn').textContent = 'Iniciar';
+<<<<<<< Updated upstream
   document.body.classList.remove('fondo-descanso'); //si el fondo es de descanso, cuando reinicias vuelve al original
   actualizarDisplay();
+=======
+  actualizarDisplay();  
+>>>>>>> Stashed changes
 }
 
 function actualizarCronometro() {
@@ -43,6 +47,9 @@ function actualizarCronometro() {
       minutos = 0; // Reinicia los minutos para empezar otro ciclo de estudio
     }
   }
+  if(minutos==3){
+    //le cambio el color al body
+  }
   actualizarDisplay();
 }
 
@@ -55,28 +62,71 @@ function formatTime(time) {
   return time < 10 ? '0' + time : time;
 }
 
-
 // IMPLEMENTACIÓN DE CLASE ToDoList
 
-// Crear una instancia de ToDoList
-const myToDoList = new ToDoList();
-
-// Obtener elementos del DOM
+// Obtener referencias a los elementos del DOM
+const taskInput = document.getElementById('taskInput');
 const addButton = document.getElementById('addButton');
-const inputTask = document.getElementById('taskInput');
-const taskList = document.getElementById('taskList');
+const toDoListContainer = document.getElementById('toDoList');
 
-// Función para agregar una tarea al hacer clic en el botón
-function addTaskOnClick() {
-    // Obtener el valor del input
-    const newTask = inputTask.value;
-    // Agregar la tarea a la lista
-    myToDoList.addTask(newTask);
-    // Actualizar el contenido del párrafo con las tareas
-    taskList.textContent = myToDoList.getAllTasks().map(task => task.task).join(', ');
-    // Limpiar el input
-    inputTask.value = '';
+// Crear una instancia de ToDoList
+const toDoList = new ToDoList();
+
+// Función para agregar una tarea
+function addTask() {
+    const taskText = taskInput.value;
+    // Verificar si el input no está vacío antes de agregar la tarea
+    if (taskText.trim() !== '') {
+        // Agregar la tarea a la lista
+        toDoList.addTask(taskText);
+        // Crear un nuevo elemento <p> para mostrar la tarea
+        const newTaskElement = document.createElement('p');
+        newTaskElement.textContent = taskText;
+
+        // Agregar margen izquierdo al elemento <p>
+        newTaskElement.style.marginLeft = '20px';
+
+        // Crear botones para marcar como completada y eliminar la tarea
+        const completeButton = document.createElement('button');
+        completeButton.textContent = 'Hecho';
+        completeButton.classList.add('btn', 'btn-success', 'me-2');
+        completeButton.addEventListener('click', function() {
+            // Marcar la tarea como completada
+            toDoList.completeTask(toDoList.tasks.length - 1);
+            // Tachar el texto de la tarea
+            newTaskElement.style.textDecoration = 'line-through';
+        });
+
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Borrar';
+        deleteButton.classList.add('btn', 'btn-danger');
+        deleteButton.addEventListener('click', function() {
+            // Eliminar la tarea de la lista
+            toDoList.removeTask(toDoList.tasks.length - 1);
+            // Eliminar el elemento <p> de la lista
+            newTaskElement.remove();
+        });
+
+        // Agregar los botones al contenedor de la tarea
+        newTaskElement.appendChild(completeButton);
+        newTaskElement.appendChild(deleteButton);
+
+        // Agregar el nuevo elemento <p> al contenedor
+        toDoListContainer.appendChild(newTaskElement);
+        // Limpiar el input después de agregar la tarea
+        taskInput.value = '';
+    }
 }
 
-// Asignar el evento onclick al botón
-addButton.onclick = addTaskOnClick;
+// Event listener para el evento click del botón
+addButton.addEventListener('click', addTask);
+
+// Event listener para el evento keydown en el input
+taskInput.addEventListener('keydown', function(event) {
+    // Verificar si la tecla presionada es Enter (cuyo código es 13)
+    if (event.keyCode === 13) {
+        // Llamar a la función addTask
+        addTask();
+    }
+});
+
