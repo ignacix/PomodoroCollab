@@ -12,13 +12,15 @@ function iniciarPausarCronometro() {
   if (!enEjecucion) {
     cronometroInterval = setInterval(actualizarCronometro, 1000); //se inicia el intervalo cronometroInterval que llama a la función actualizarCronometro
     enEjecucion = true;
-    document.getElementById('start-btn').textContent = '𝗅𝗅'; //el start-btn por defecto es de "iniciar", das click y ahora el text content es "pausar".
+    document.getElementById('start-btn').textContent = '𝗅 𝗅'; //el start-btn por defecto es de "iniciar", das click y ahora el text content es "pausar".
   } else {
     clearInterval(cronometroInterval);
     enEjecucion = false;
     document.getElementById('start-btn').textContent = '▷';
   }
 }
+
+
 
 function reiniciarCronometro() {
   clearInterval(cronometroInterval);
@@ -55,15 +57,12 @@ function actualizarCronometro() {
       }
     }
   }
-  if(minutos==3){
-    //le cambio el color al body
-  }
   actualizarDisplay();
 }
 
 function actualizarDisplay() {
   var display = document.getElementById('cronometro-display');
-  display.textContent = formatTime(horas) + ':' + formatTime(minutos) + ':' + formatTime(segundos);
+  display.textContent =formatTime(minutos) + ':' + formatTime(segundos);
 }
 
 function formatTime(time) {
