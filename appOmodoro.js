@@ -96,7 +96,7 @@ function addTask() {
         // Crear botones para marcar como completada y eliminar la tarea
         const completeButton = document.createElement('button');
         completeButton.textContent = '✓';
-        completeButton.classList.add('btn', 'btn-success', 'me-2');
+        completeButton.classList.add('botonera','btn', 'btn-success', 'me-2');
         completeButton.addEventListener('click', function() {
             // Marcar la tarea como completada
             toDoList.completeTask(toDoList.tasks.length - 1);

@@ -2,7 +2,7 @@ body{
   /* background-image: url(./images/cronometro-2187641.webp); */
   background-size: cover;
   margin: 0 auto;
-  
+  background-color: #F4F6F6 ;  
 }
 header{
   background:#0f4469;
@@ -11,8 +11,11 @@ header{
   color: white;
   align-items: center;
 }
-b{
+/* b{
   font-size: 3em;
+} */
+h1{
+  margin-left: 60px;
 }
 button{
   display:inline-block;
@@ -25,7 +28,8 @@ button{
 #musica-lofi{
   width: 50%;
   display:flex;
-  justify-content: space-around;
+  justify-content: end;
+  padding-right: 20px;
 }
 #audio-container {
   display: inline-block;
@@ -39,7 +43,7 @@ button{
   width: 100px;
 }
 #pause{
-  height: 6em;
+  height: 3em;  
 }
 .supercontainer{
   display:flex;
@@ -85,6 +89,10 @@ button{
 
 
 /*TO-DO LIST*/
+
+.botonera{
+  margin-left: 20px;
+}
 
 /*
 .row{

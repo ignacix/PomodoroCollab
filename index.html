@@ -13,54 +13,55 @@
 <body>
     <header>
         <div id="logo-pagina">
-            <h1>Pomodoro y TO-DO List</h1>
+            <h1>PomodoroApp</h1>
         </div>
         <div id="musica-lofi">
-            <b>Musica Lofi</b>
+
             <div id="audio-container">
                 <div id="audio-icon">
-                  <img id="pause" src="./images/music_4243780.png" alt="logo-musica"></i>
+                    <img id="pause" src="./images/music_4243780.png" alt="logo-musica"></i>
                 </div>
-                <audio id="audio" src="./A Year Ago (Instrumental) - NEFFEX.mp3" type="audio/mpeg" loop ></audio>
+                <audio id="audio" src="./A Year Ago (Instrumental) - NEFFEX.mp3" type="audio/mpeg" loop></audio>
             </div>
         </div>
     </header>
     <div class="supercontainer">
 
         <div class="container">
-        <h2 id="contador-pomodoros">Pomodoros: 0</h2>
-        <!-- CRONOMETRO -->
+            <h2 id="contador-pomodoros">Pomodoros: 0</h2>
+            <!-- CRONOMETRO -->
             <div class="cronometroContainer">
                 <div class="cronometroContent m-4 mt-6">
                     <div id="cronometro-display">00:00</div>
                     <div class="playPause">
-                        <button class="btn btn-secondary m-2" id="start-btn" onclick="iniciarPausarCronometro()">▷</button>
+                        <button class="btn btn-secondary m-2" id="start-btn"
+                            onclick="iniciarPausarCronometro()">▷</button>
                         <button class="btn btn-secondary m-2" id="reset-btn" onclick="reiniciarCronometro()">⟲</button>
                     </div>
                 </div>
             </div>
         </div>
-                    <div class="container">
-                        <div class="row">
-                            <h2>Agregá cada tarea que tenés que realizar!</h2>
-                            <div class="col-8 mb-3">
-                                <input type="text" id="taskInput" class="form-control" placeholder="¿Que tenés que hacer hoy?">
-                            </div>
-                            <div class="col">
-                                <button id="addButton" class="btn btn-primary me-2">+</button>
-                            </div>
-                        </div>
-                        <div id="toDoList">
-                            <!-- Aquí se agregarán los elementos de la lista de tareas -->
-                        </div>
-                    </div>
+        <div class="container">
+            <div class="row">
+                <h2>Tareas a realizar</h2>
+                <div class="col-8 mb-3">
+                    <input type="text" id="taskInput" class="form-control" placeholder="¿Que tenés que hacer hoy?">
                 </div>
-                
+                <div class="col">
+                    <button id="addButton" class="btn btn-primary me-2">+</button>
+                </div>
             </div>
+            <div id="toDoList">
+                <!-- Aquí se agregarán los elementos de la lista de tareas -->
+            </div>
+        </div>
     </div>
-        <script src="Musica.js"></script>
-        <script src="ToDoList.js"></script>
-        <script src="./appOmodoro.js"></script>
-    </body>
+
+    </div>
+    </div>
+    <script src="Musica.js"></script>
+    <script src="ToDoList.js"></script>
+    <script src="./appOmodoro.js"></script>
+</body>
 
 </html>
