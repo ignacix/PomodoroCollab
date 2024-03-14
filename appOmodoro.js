@@ -30,7 +30,7 @@ function reiniciarCronometro() {
   enEjecucion = false;
   document.getElementById('start-btn').textContent = '▷';
   contadorPomodoros = 0; // Reinicia el contador de pomodoros
-  document.getElementById('contador-pomodoros').textContent = 'Vueltas: ' + contadorPomodoros;
+  document.getElementById('contador-pomodoros').textContent = 'Pomodoros: ' + contadorPomodoros;
   document.body.classList.remove('fondo-descanso'); //si el fondo es de descanso, cuando reinicias vuelve al original
   actualizarDisplay();
   // actualizarDisplay();  
@@ -53,7 +53,7 @@ function actualizarCronometro() {
       if (contadorVueltas % 2 === 0) { // Verifica si se han completado dos ciclos de descanso
         contadorVueltas = 0; // Reinicia el contador de vueltas
         contadorPomodoros++;
-        document.getElementById('contador-pomodoros').textContent = 'Vueltas: ' + contadorPomodoros;
+        document.getElementById('contador-pomodoros').textContent = 'Pomodoros: ' + contadorPomodoros;
       }
     }
   }
