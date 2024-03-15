@@ -1,3 +1,8 @@
+*{
+  margin:0;
+  padding: 0;
+  font-family: orbitron, sans-serif;
+}
 body{
   /* background-image: url(./images/cronometro-2187641.webp); */
   background-size: cover;
@@ -49,39 +54,58 @@ button{
   display:flex;
 }
 .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: rgba(148, 191, 216, 0.5);
-  min-height: auto;
-  width: 450px;  
-  padding: 30px;
+  gap: 2rem;
+  margin-top: 3rem;
+  padding-top: 3rem;
   border-radius: 10px;
-  margin-top: 30px;
 }
 
 /* CRONOMETRO */
 .cronometroContainer {
-  width: 200px;
-  height: 200px;
-  margin: 0 auto;
-  border: 5px solid black;
-  border-radius: 50%;
-  justify-content: center;
+   display: flex;
+   font-size: 80px;
+   font-weight: bold;
+}
+.cronometro{
+  display: flex;
   align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  min-width: 90px;
+  color: #214661;
+}
+.separador{
+  padding: 0 10px;
+  color: dimgray;
+}
+.buttons{
+  gap: 1rem;
+  display: flex;
+}
+.btn{
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
-
-#cronometro-display {
-  display: flex;
-  justify-content: center;
-  align-items:center; 
-  margin-top: 50px;
-  font-size: 40px;
-  margin-bottom: 20px;
-} 
-
-.playPause{
-  display: flex;
-  justify-content: center;
+.btn:hover{
+  transform: scale(1.1);
 }
+#iniciar{
+  background-color: #214661;
+  color: #fff;
+}
+#pausar,#continuar{
+  display: none;
+}
+
 
 .fondo-descanso {
   background-color: #ccffe0; /* Temporal*/
